@@ -1,3 +1,10 @@
+"""
+
+可以 爬取JavaScript渲染页面之后的内容
+
+python.exe .\pyppeteer_folder\2.pyp.py
+"""
+
 import asyncio
 from pyppeteer import launch
 from pyquery import PyQuery as pq
