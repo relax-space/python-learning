@@ -1,4 +1,4 @@
-"""
+r"""
 熟悉getattr方法
 python.exe .\base_folder\func_.py
 
