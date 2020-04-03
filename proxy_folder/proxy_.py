@@ -40,7 +40,7 @@ class Proxy:
         return None
 
     def parse(self,abPath):
-        ips,err = self.parsePure(abPath,"1.html")
+        ips,err = self.parsePureForTest(abPath,"1.html")
         if err != None:
             print(err)
             return err
