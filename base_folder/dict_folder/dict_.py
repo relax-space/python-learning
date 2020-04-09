@@ -1,32 +1,15 @@
 from collections import OrderedDict
 
+def opDict():
+    op = OrderedDict()
+    op["jsv"]="2.5.1"
+    op["api"]="mtop.taobao.wsearch.appSearch"
+
+    expList =[{"jsv":"2.5.1"},{"api":"mtop.taobao.wsearch.appSearch"}]
+    actList =[{k:v} for k,v in op.items()]
+    print(expList == actList)
+    print([{"api":"mtop.taobao.wsearch.appSearch"},{"jsv":"2.5.1"}] != actList)
 
 
-raw ={
-            'jsv':'2.5.1',
-            'api':'mtop.taobao.wsearch.appSearch',
-            'v':'1.0',
-            'H5Request':'true',
-            'AntiCreep':'true',
-            'type':'jsonp',
-            'timeout':'3000',
-            'dataType':'jsonp',
-            "data":{
-            "m":"shopitemsearch",
-            "vm":"nw",
-            "sversion":"4.6",
-            "shopId":"108676053",
-            "sellerId":"1985598030",
-            "style":"wf",
-            "page":"1",
-            "sort":"_coefp",
-            "catmap":"",
-            "wirelessShopCategoryList":""
-        },
-        }
-op = OrderedDict()
-op["param"]=raw
-
-print(raw)
-print("====="*20)
-print(op)
+if __name__ == "__main__":
+    opDict()
