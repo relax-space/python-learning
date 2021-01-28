@@ -20,3 +20,11 @@ def jsonVar():
 if __name__ == "__main__":
     opDict()
     print(jsonVar())
+    dd ={"1":11,"2":22}
+    print(type(dd.keys()))
+    print(list(dd.keys()))
+    print(list(dd.values()))
+    print(type(dd.values()))
+    items = list(dd.items())
+    print(items)
+    print(type(items))

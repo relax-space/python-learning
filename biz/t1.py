@@ -33,6 +33,9 @@ class ExcelColumnDto():
         return self
 
 if __name__ =='__main__':
+    print([i.value for i in ExcelColumnEnum if i !=
+           ExcelColumnEnum.RETRY_COUNT and i != ExcelColumnEnum.RETRY_INTERVAL_SECOND])
+
     a = {
         ExcelColumnEnum.CASE_NO: 123
     }
