@@ -1,6 +1,29 @@
 from enum import Enum, unique
 from typing import Any, Dict
 
+from datetime import datetime, timedelta, timezone
+ 
+print(datetime.now().strftime('%Y%m%d%H%M%S%f'))
+print(datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])
+
+class TimeZoneChina:
+    SHA_TZ = timezone(
+        timedelta(hours=8),
+        name='Asia/Shanghai',
+    )
+    @classmethod
+    def now(cls):
+        '''
+        北京时间
+        '''
+        return datetime.utcnow().replace(tzinfo=timezone.utc).astimezone(cls.SHA_TZ)
+    @classmethod
+    def now_str(cls):
+        return cls.now().strftime('%Y-%m-%dT%H:%M:%SZ')
+
+
+print(TimeZoneChina.now().strftime('%Y%m%d%H%M%S%f'))
+
 #@unique装饰器可以帮助我们检查保证没有重复值
 @unique
 class ExcelColumnEnum(Enum):
