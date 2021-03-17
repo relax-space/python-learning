@@ -69,14 +69,20 @@ class ExcelSettingDto:
         entry['__class__'] = obj.__class__.__name__
         return entry
 
+    @classmethod
     def from_dict(cls, dict):
         if dict.get('__class__') == 'HostDto':
             obj = HostDto()
             obj.__dict__ = dict
             return obj
+        elif dict.get('__class__') == 'ReportDto':
+            obj = ReportDto()
+            obj.__dict__ = dict
+            return obj
         elif dict.get('__class__') == 'ExcelSettingDto':
-            cls.__dict__ = dict
-            return cls
+            obj = ExcelSettingDto()
+            obj.__dict__ = dict
+            return obj
         return dict
 
     def __repr__(self):
@@ -103,7 +109,7 @@ sss2 = json.dumps(dto, default=ExcelSettingDto.to_dict)
 print(sss2)
 
 dto2: ExcelSettingDto = ExcelSettingDto()
-dto3 = json.loads(sss2, object_hook=dto2.from_dict)
+dto3 = json.loads(sss2, object_hook=ExcelSettingDto.from_dict)
 print(dto3.env_info['main'].__dict__)
 print(dto3.__dict__)
 print(dto3.__repr__())
